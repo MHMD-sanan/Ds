@@ -47,6 +47,7 @@ class LinkList {
       for (let i = 0; i < index - 1; i++) {
         tempPointer = tempPointer.next;
       }
+
       node.next = tempPointer.next;
       tempPointer.next = node;
       this.size++;
@@ -109,18 +110,35 @@ class LinkList {
     }
     return console.log("This element is not found");
   }
-    
-    reverse() {
-        let prev = null;
-        let curr = this.head;
-        while (curr) {
-            let next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        this.head = prev;
+
+  reverse() {
+    let prev = null;
+    let curr = this.head;
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
     }
+    this.head = prev;
+  }
+
+  arrayToLinklist() {
+    const arr = [1, 2, 3, 4, 5];
+    arr.forEach((item) => {
+      const node = new Node(item);
+      if (this.size === 0) {
+        this.head = node;
+      } else {
+        let tempPointer = this.head;
+        while (tempPointer.next) {
+          tempPointer = tempPointer.next;
+        }
+        tempPointer.next = node;
+      }
+      this.size++;
+    });
+  }
 
   // O(n)
   printList() {

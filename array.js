@@ -102,6 +102,7 @@ function fibonacci(n) {
   }
   return arr;
 }
+console.log(fibonacci(3));
 // factorial of a number
 function factorial(n) {
   let sum = 1;
@@ -114,13 +115,14 @@ function factorial(n) {
 // prime number finding
 function primeNumber(n) {
   if (n < 2) {
-    return false
+    return console.log('not a prime number');
   }
-  for (let i = 2; i <Math.sqrt(n); i++){
-    if(n%i===0) return false
+  for (let i = 2; i <= Math.sqrt(n); i++){
+    if(n%i===0) return console.log('not a prime number');
   }
-  return true
+  return console.log("prime number");
 }
+
 // finding power of two
 function powerOfTwo(n) {
   if (n < 1) return false;
@@ -147,9 +149,9 @@ function searchElement() {
   const arr = [1, 2, 3, 4, 5, 6];
   const t = 6;
   for (let i = 0; i < arr.length; i++){
-    if (arr[i] === t) return i;
+    if (arr[i] === t) return console.log(`found`);
   }
-  return -1;
+  return console.log("not found");
 }
 
 // Binary search
@@ -176,5 +178,3 @@ function forOfLoop() {
     console.log(item);
   }
 }
-
-forOfLoop();
